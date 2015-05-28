@@ -8,7 +8,8 @@ float tw_lerp(float start, float end, float percent)
 
 float tw_ease_in(float start, float end, float percent)
 {
-	return tw_lerp(start, end, sqrtf(percent));
+	const float p = 1.0f - percent;
+	return tw_lerp(end, start, p * p);
 }
 
 float tw_ease_out(float start, float end, float percent)
